@@ -1,9 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&family=Secular+One&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   body {
-    @apply bg-gray-900 text-white;
+    @apply bg-gray-800 text-white font-[montserrat];
   }
 }

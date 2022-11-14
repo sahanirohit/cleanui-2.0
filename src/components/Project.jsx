@@ -5,6 +5,7 @@ import { FaArrowRight } from "react-icons/fa";
 import ecommerce from "../assets/ecommerce-development.jpg";
 import web from "../assets/website-development.jpg";
 import marketing from "../assets/digital-marketing.jpg";
+import { Link } from "react-router-dom";
 const projectImage = [
   {
     img: ecommerce,
@@ -31,17 +32,19 @@ const Project = () => {
     <div className=" max-w-7xl px-6 xl:px-28 mx-auto flex flex-col items-center">
       <div className="flex items-center justify-between w-full">
         <div className="relative flex w-full items-center space-x-6">
-          <h1 className="text-3xl inline-flex">
+          <h1 className="sm:text-3xl inline-flex">
             <strong className=" text-pink-500">#</strong> Project
           </h1>
-          <div className="absoute h-px w-full bg-pink-500 max-w-sm inline-flex"></div>
+          <div className="absoute h-px w-full bg-pink-500 max-w-sm hidden md:inline-flex"></div>
         </div>
         <div className="flex items-center space-x-4 w-full justify-end">
           <h1 className="">View All</h1>
-          <FaArrowRight className="cursor-pointer" />
+          <Link to={"/portfolio"}>
+            <FaArrowRight className="cursor-pointer" />
+          </Link>
         </div>
       </div>
-      <div className="grid grid-cols-3 gap-4 py-8">
+      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-8">
         {projectImage.map((item, index) => {
           return (
             <div className="border" key={index}>

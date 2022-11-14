@@ -6,20 +6,20 @@ const Contact = () => {
     <div className=" max-w-7xl mx-auto flex flex-col items-center py-16 px-6 xl:px-28">
       <div className="flex items-center justify-between w-full">
         <div className="relative flex w-full items-center space-x-6">
-          <h1 className="text-3xl inline-flex">
+          <h1 className="sm:text-3xl inline-flex">
             <strong className=" text-pink-500">#</strong> Contact
           </h1>
-          <div className="absoute h-px w-full bg-pink-500 max-w-sm inline-flex"></div>
+          <div className="absoute h-px w-full bg-pink-500 max-w-sm hidden md:inline-flex"></div>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-4">
-        <div className="py-16 text-xl text-gray-300">
+      <div className="grid md:grid-cols-2 pt-16 gap-4">
+        <div className="text-xl text-gray-300">
           <p className="">
             I'm interested in freelance opportunities. However, if you have
             other request or question, don't hesitate to contact me.
           </p>
         </div>
-        <div className="flex justify-center py-16">
+        <div className="flex md:justify-end pb-16">
           <div className=" space-y-4 border p-4">
             <h2 className="text-xl">Message me here</h2>
             <div className="flex items-center space-x-2 text-gray-300">
