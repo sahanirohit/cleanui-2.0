@@ -28,25 +28,13 @@ const projectImage = [
   },
 ];
 
-const variant = {
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: {
-    opacity: 0,
-    x: -70,
-  },
+const projectTitle = {
+  hidden: { opacity: 0, x: -100 },
   show: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.8,
+      duration: 0.5,
     },
   },
 };
@@ -55,23 +43,46 @@ const Project = () => {
   return (
     <div className=" max-w-7xl px-6 xl:px-28 mx-auto flex flex-col items-center">
       <div className="flex items-center justify-between w-full">
-        <div className="relative flex w-full items-center space-x-6">
-          <h1 className="sm:text-3xl inline-flex">
+        <motion.div
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ staggerChildren: 0.3 }}
+          className="relative flex w-full items-center space-x-6">
+          <motion.h1
+            variants={projectTitle}
+            className="sm:text-3xl inline-flex">
             <strong className=" text-pink-500">#</strong> Project
-          </h1>
-          <div className="absoute h-px w-full bg-pink-500 max-w-sm hidden md:inline-flex"></div>
-        </div>
-        <div className="flex items-center space-x-4 w-full justify-end">
-          <h1 className="">View All</h1>
-          <Link to={"/portfolio"}>
-            <FaArrowRight className="cursor-pointer" />
-          </Link>
-        </div>
+          </motion.h1>
+          <motion.div
+            variants={projectTitle}
+            className="absoute h-px w-full bg-pink-500 max-w-sm hidden md:inline-flex"></motion.div>
+        </motion.div>
+        <motion.div
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: false, amount: 0.3 }}
+          transition={{ staggerChildren: 0.3 }}
+          className="flex items-center space-x-4 w-full justify-end">
+          <motion.h1 variants={projectTitle} className="">
+            View All
+          </motion.h1>
+          <motion.div variants={projectTitle} className="">
+            <Link to={"/portfolio"}>
+              <FaArrowRight className="cursor-pointer" />
+            </Link>
+          </motion.div>
+        </motion.div>
       </div>
-      <motion.div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-8">
+      <motion.div
+        initial={"hidden"}
+        whileInView={"show"}
+        viewport={{ once: false, amount: 0.4 }}
+        transition={{ staggerChildren: 0.3 }}
+        className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-8">
         {projectImage.map((item, index) => {
           return (
-            <motion.div className="border" key={index}>
+            <motion.div variants={projectTitle} className="border" key={index}>
               <div className="w-full h-60">
                 <img
                   src={item.img}

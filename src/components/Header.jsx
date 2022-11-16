@@ -4,39 +4,84 @@ import { FaGithub, FaInstagram, FaWhatsapp, FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { motion } from "framer-motion";
 
+const item = {
+  offscreen: { opacity: 0, y: 50 },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+const navItem = {
+  offscreen: { opacity: 0, y: -100 },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+const liItem = {
+  offscreen: { opacity: 0, y: -100 },
+  onscreen: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const Header = () => {
   const url = useLocation();
   const [mobileNav, setMobileNav] = useState(false);
   return (
     <header className="h-16 flex flex-col items-center">
       <motion.div
-        initial={{ y: -400 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        animate={{ y: 0 }}
+        initial={"offscreen"}
+        whileInView={"onscreen"}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{
+          staggerChildren: 0.2,
+        }}
         className="fixed top-0 left-8 hidden xl:flex flex-col items-center space-y-4">
-        <div className="w-px h-36 bg-white"></div>
-        <a href="http://github.com" target="_blank" rel="noopener noreferrer">
+        <motion.div className="w-px h-24 bg-white"></motion.div>
+        <motion.a
+          variants={item}
+          href="http://github.com"
+          target="_blank"
+          rel="noopener noreferrer">
           <FaGithub className="text-xl" />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={item}
           href="http://instagram.com/rkhdigital"
           target="_blank"
           rel="noopener noreferrer">
           <FaInstagram className="text-xl" />
-        </a>
-        <a
+        </motion.a>
+        <motion.a
+          variants={item}
           href="http://wa.me/918957912038"
           target="_blank"
           rel="noopener noreferrer">
           <FaWhatsapp className="text-xl" />
-        </a>
+        </motion.a>
       </motion.div>
       <motion.div
-        initial={{ y: -100 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        animate={{ y: 0 }}
+        initial={"offscreen"}
+        whileInView={"onscreen"}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{
+          staggerChildren: 0.2,
+        }}
         className="flex items-center fixed top-0 bg-gray-800 z-50 w-full h-16 justify-between max-w-7xl mx-auto px-6 xl:px-28">
-        <div className="flex md:w-auto w-full justify-between z-50">
+        <motion.div
+          variants={navItem}
+          className="flex md:w-auto w-full justify-between z-50">
           <h1 className=" text-xl font-bold">Clean UI</h1>
           <div className="flex items-center md:hidden space-x-8">
             <a
@@ -58,34 +103,44 @@ const Header = () => {
               />
             )}
           </div>
-        </div>
+        </motion.div>
         {/* Desktop Nav */}
-        <ul className="md:flex hidden text-gray-400">
-          <li
+        <motion.ul
+          initial={"offscreen"}
+          animate={"onscreen"}
+          transition={{
+            staggerChildren: 0.2,
+          }}
+          className="md:flex hidden text-gray-400">
+          <motion.li
+            variants={liItem}
             className={`${
               url.pathname === "/" ? "text-white" : ""
             } px-4 py-2 cursor-pointer hover:text-white`}>
             <Link to={"/"}>Home</Link>
-          </li>
-          <li
+          </motion.li>
+          <motion.li
+            variants={liItem}
             className={`${
               url.pathname === "/portfolio" ? "text-white" : ""
             } px-4 py-2 cursor-pointer hover:text-white`}>
             <Link to={"/portfolio"}>Portfolio</Link>
-          </li>
-          <li
+          </motion.li>
+          <motion.li
+            variants={liItem}
             className={`${
               url.pathname === "/about" ? "text-white" : ""
             } px-4 py-2 cursor-pointer hover:text-white`}>
             <Link to={"/about"}>About Me</Link>
-          </li>
-          <li
+          </motion.li>
+          <motion.li
+            variants={liItem}
             className={`${
               url.pathname === "/contact" ? "text-white" : ""
             } px-4 py-2 cursor-pointer hover:text-white`}>
             <Link to={"/contact"}>Contact</Link>
-          </li>
-        </ul>
+          </motion.li>
+        </motion.ul>
 
         {/* Mobile Nav */}
         <ul
@@ -132,13 +187,14 @@ const Header = () => {
             </a>
           </div>
         </ul>
-        <a
+        <motion.a
+          variants={navItem}
           href="http://wa.me/918957912038"
           target="_blank"
           className="border hidden md:block px-4 py-1.5 border-pink-500"
           rel="noopener noreferrer">
           Hire Me
-        </a>
+        </motion.a>
       </motion.div>
     </header>
   );
