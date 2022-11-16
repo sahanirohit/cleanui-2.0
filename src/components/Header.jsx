@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaGithub, FaInstagram, FaWhatsapp, FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const url = useLocation();
   const [mobileNav, setMobileNav] = useState(false);
   return (
     <header className="h-16 flex flex-col items-center">
-      <div className="fixed top-0 left-8 hidden xl:flex flex-col items-center space-y-4">
+      <motion.div
+        initial={{ y: -400 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        animate={{ y: 0 }}
+        className="fixed top-0 left-8 hidden xl:flex flex-col items-center space-y-4">
         <div className="w-px h-36 bg-white"></div>
         <a href="http://github.com" target="_blank" rel="noopener noreferrer">
           <FaGithub className="text-xl" />
@@ -25,8 +30,12 @@ const Header = () => {
           rel="noopener noreferrer">
           <FaWhatsapp className="text-xl" />
         </a>
-      </div>
-      <div className="flex items-center fixed top-0 bg-gray-800 z-50 w-full h-16 justify-between max-w-7xl mx-auto px-6 xl:px-28">
+      </motion.div>
+      <motion.div
+        initial={{ y: -100 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        animate={{ y: 0 }}
+        className="flex items-center fixed top-0 bg-gray-800 z-50 w-full h-16 justify-between max-w-7xl mx-auto px-6 xl:px-28">
         <div className="flex md:w-auto w-full justify-between z-50">
           <h1 className=" text-xl font-bold">Clean UI</h1>
           <div className="flex items-center md:hidden space-x-8">
@@ -130,9 +139,9 @@ const Header = () => {
           rel="noopener noreferrer">
           Hire Me
         </a>
-      </div>
+      </motion.div>
     </header>
   );
 };
 
-export default Header;
+export default memo(Header);

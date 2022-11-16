@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -39,7 +39,12 @@ const About = () => {
           </div>
         </div>
         <div className="flex justify-center lg:justify-end relative">
-          <img src={aboutImage} alt="" className="border-b border-pink-500" />
+          <img
+            loading="lazy"
+            src={aboutImage}
+            alt=""
+            className="border-b border-pink-500"
+          />
           <div className="absolute lg:left-44 left-64 duration-500 flex space-x-3">
             <div className="flex flex-col space-y-3">
               <div className="w-[6px] h-[6px] bg-white rounded-full"></div>
@@ -115,4 +120,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default memo(About);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { Link } from "react-router-dom";
 import { FaLongArrowAltRight } from "react-icons/fa";
 
@@ -38,7 +38,12 @@ const AboutPage = () => {
           </div>
         </div>
         <div className="flex justify-center md:justify-end relative">
-          <img src={aboutImage} alt="" className="border-b border-pink-500" />
+          <img
+            loading="lazy"
+            src={aboutImage}
+            alt=""
+            className="border-b border-pink-500"
+          />
           <div className="absolute left-44 flex space-x-3">
             <div className="flex flex-col space-y-3">
               <div className="w-[6px] h-[6px] bg-white rounded-full"></div>
@@ -257,4 +262,4 @@ const AboutPage = () => {
   );
 };
 
-export default AboutPage;
+export default memo(AboutPage);

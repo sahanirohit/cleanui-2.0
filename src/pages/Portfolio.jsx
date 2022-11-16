@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 // import project image
 import ecommerce from "../assets/ecommerce-development.jpg";
@@ -63,6 +63,7 @@ const Portfolio = () => {
                 <img
                   src={item.img}
                   alt=""
+                  loading="lazy"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -89,4 +90,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default memo(Portfolio);

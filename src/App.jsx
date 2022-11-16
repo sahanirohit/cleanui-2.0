@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./components/About";
 import AboutPage from "./pages/AboutPage";
@@ -64,4 +64,4 @@ function App() {
   );
 }
 
-export default App;
+export default memo(App);

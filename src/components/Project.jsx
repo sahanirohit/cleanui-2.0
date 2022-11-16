@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FaArrowRight } from "react-icons/fa";
 
 // import project image
@@ -6,6 +6,7 @@ import ecommerce from "../assets/ecommerce-development.jpg";
 import web from "../assets/website-development.jpg";
 import marketing from "../assets/digital-marketing.jpg";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 const projectImage = [
   {
     img: ecommerce,
@@ -27,6 +28,29 @@ const projectImage = [
   },
 ];
 
+const variant = {
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const item = {
+  hidden: {
+    opacity: 0,
+    x: -70,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.8,
+    },
+  },
+};
+
 const Project = () => {
   return (
     <div className=" max-w-7xl px-6 xl:px-28 mx-auto flex flex-col items-center">
@@ -44,13 +68,14 @@ const Project = () => {
           </Link>
         </div>
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-8">
+      <motion.div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-8">
         {projectImage.map((item, index) => {
           return (
-            <div className="border" key={index}>
+            <motion.div className="border" key={index}>
               <div className="w-full h-60">
                 <img
                   src={item.img}
+                  loading="lazy"
                   alt=""
                   className="w-full border h-full object-cover"
                 />
@@ -66,12 +91,12 @@ const Project = () => {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };
 
-export default Project;
+export default memo(Project);

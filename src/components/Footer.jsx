@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { FaEnvelope, FaWhatsapp, FaGithub, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
@@ -60,4 +60,4 @@ const Footer = () => {
   );
 };
 
-export default Footer;
+export default memo(Footer);
