@@ -39,6 +39,17 @@ const projectTitle = {
   },
 };
 
+const projectContent = {
+  hidden: { opacity: 0, y: 80 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
 const Project = () => {
   return (
     <div className=" max-w-7xl px-6 xl:px-28 mx-auto flex flex-col items-center">
@@ -46,7 +57,7 @@ const Project = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.3 }}
           className="relative flex w-full items-center space-x-6">
           <motion.h1
@@ -61,7 +72,7 @@ const Project = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.3 }}
           className="flex items-center space-x-4 w-full justify-end">
           <motion.h1 variants={projectTitle} className="">
@@ -77,12 +88,15 @@ const Project = () => {
       <motion.div
         initial={"hidden"}
         whileInView={"show"}
-        viewport={{ once: false, amount: 0.4 }}
+        viewport={{ once: true, amount: 0.4 }}
         transition={{ staggerChildren: 0.3 }}
         className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 py-8">
         {projectImage.map((item, index) => {
           return (
-            <motion.div variants={projectTitle} className="border" key={index}>
+            <motion.div
+              variants={projectContent}
+              className="border"
+              key={index}>
               <div className="w-full h-60">
                 <img
                   src={item.img}

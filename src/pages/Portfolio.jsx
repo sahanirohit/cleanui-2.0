@@ -5,6 +5,7 @@ import ecommerce from "../assets/ecommerce-development.jpg";
 import web from "../assets/website-development.jpg";
 import marketing from "../assets/digital-marketing.jpg";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const projectImage = [
   {
@@ -45,20 +46,49 @@ const projectImage = [
   },
 ];
 
+const projectContent = {
+  hidden: {
+    opacity: 0,
+    y: 50,
+  },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
 const Portfolio = () => {
   return (
     <div className=" max-w-7xl flex items-center flex-col py-16 px-6 xl:px-28 mx-auto">
       <div className="flex items-center justify-between w-full pb-16">
-        <div className="relative flex w-full items-center space-x-6">
-          <h1 className="sm:text-3xl inline-flex">
+        <motion.div
+          initial={"hidden"}
+          whileInView={"show"}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ staggerChildren: 0.3 }}
+          className="relative flex w-full items-center space-x-6">
+          <motion.h1
+            variants={projectContent}
+            className="sm:text-3xl inline-flex">
             <strong className=" text-pink-500">#</strong> Completed Projects
-          </h1>
-        </div>
+          </motion.h1>
+        </motion.div>
       </div>
-      <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <motion.div
+        initial={"hidden"}
+        whileInView={"show"}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ staggerChildren: 0.3 }}
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
         {projectImage.map((item, index) => {
           return (
-            <div className="border" key={index}>
+            <motion.div
+              variants={projectContent}
+              className="border"
+              key={index}>
               <div className="h-60">
                 <img
                   src={item.img}
@@ -82,10 +112,10 @@ const Portfolio = () => {
                   </a>
                 </div>
               </div>
-            </div>
+            </motion.div>
           );
         })}
-      </div>
+      </motion.div>
     </div>
   );
 };

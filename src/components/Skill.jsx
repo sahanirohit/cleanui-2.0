@@ -30,7 +30,7 @@ const Skill = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.3 }}
           className="relative flex w-full items-center space-x-6">
           <motion.h1 variants={skillTitle} className="sm:text-3xl inline-flex">
@@ -45,7 +45,7 @@ const Skill = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.3 }}
           className="relative hidden lg:block">
           <motion.div
@@ -110,7 +110,7 @@ const Skill = () => {
           <motion.div
             initial={"hidden"}
             whileInView={"show"}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{ staggerChildren: 0.3 }}
             className="grid sm:grid-cols-2 md:grid-cols-3 text-xl gap-4 w-full">
             <motion.div variants={skillContent} className="border">

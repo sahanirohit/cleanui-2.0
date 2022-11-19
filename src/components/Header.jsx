@@ -43,7 +43,7 @@ const Header = () => {
       <motion.div
         initial={"offscreen"}
         whileInView={"onscreen"}
-        viewport={{ once: false, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{
           staggerChildren: 0.2,
         }}
@@ -74,7 +74,7 @@ const Header = () => {
       <motion.div
         initial={"offscreen"}
         whileInView={"onscreen"}
-        viewport={{ once: false, amount: 0.5 }}
+        viewport={{ once: true, amount: 0.5 }}
         transition={{
           staggerChildren: 0.2,
         }}
@@ -191,9 +191,10 @@ const Header = () => {
           variants={navItem}
           href="http://wa.me/918957912038"
           target="_blank"
-          className="border hidden md:block px-4 py-1.5 border-pink-500"
+          className="border hidden md:inline-flex items-center space-x-3 px-4 py-1.5 border-pink-500"
           rel="noopener noreferrer">
-          Hire Me
+          <span>Hire Me</span>
+          <FaWhatsapp />
         </motion.a>
       </motion.div>
     </header>

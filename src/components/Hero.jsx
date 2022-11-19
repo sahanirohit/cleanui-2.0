@@ -37,7 +37,7 @@ const Hero = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.2 }}
           className="flex flex-col items-center text-center md:text-left md:items-start justify-center space-y-6">
           <motion.h1 variants={heroItem} className="text-5xl ">
@@ -61,7 +61,7 @@ const Hero = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.2 }}
           className="w-full h-full flex flex-col items-end justify-end">
           <motion.img
@@ -82,7 +82,7 @@ const Hero = () => {
       <motion.div
         initial={"hidden"}
         whileInView={"show"}
-        viewport={{ once: false, amount: 1 }}
+        viewport={{ once: true, amount: 1 }}
         transition={{ staggerChildren: 0.2 }}
         className="pt-8 text-2xl relative font-[lobster]">
         <motion.div variants={heroQuote} className="relative border px-8 py-2">

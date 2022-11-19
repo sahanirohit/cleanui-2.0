@@ -46,7 +46,7 @@ const About = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.3 }}
           className="relative flex w-full items-center space-x-6">
           <motion.h1 variants={aboutTitle} className="sm:text-3xl inline-flex">
@@ -61,7 +61,7 @@ const About = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ staggerChildren: 0.3 }}
           className="pt-8 flex items-center text-center lg:items-start lg:text-left flex-col space-y-4 text-xl text-gray-300">
           <motion.p variants={aboutContent} className="">
@@ -80,7 +80,7 @@ const About = () => {
           </motion.p>
           <motion.div variants={aboutContent} className="w-full">
             <Link
-              to={"/contact"}
+              to={"/about"}
               className="px-4 text-sm py-1 border border-pink-500 inline-flex items-center space-x-2">
               <span>Read More</span> <FaArrowRight />
             </Link>
@@ -89,7 +89,7 @@ const About = () => {
         <motion.div
           initial={"hidden"}
           whileInView={"show"}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.3 }}
           className="flex h-96 justify-center lg:justify-end relative">
           <motion.img
             loading="lazy"
@@ -100,7 +100,7 @@ const About = () => {
           />
           <motion.div
             variants={aboutImageAnimation}
-            className="absolute lg:left-52 left-64 duration-500 flex space-x-3">
+            className="absolute lg:left-52 hidden  left-64 duration-500 sm:flex space-x-3">
             <div className="flex flex-col space-y-3">
               <div className="w-[6px] h-[6px] bg-white rounded-full"></div>
               <div className="w-[6px] h-[6px] bg-white rounded-full"></div>
@@ -139,7 +139,7 @@ const About = () => {
           </motion.div>
           <motion.div
             variants={aboutImageAnimation}
-            className="absolute lg:right-0 duration-500 right-64 bottom-8 flex space-x-5">
+            className="absolute lg:right-0 duration-500 right-64 bottom-8 hidden sm:flex space-x-5">
             <div className="flex flex-col space-y-3">
               <div className="w-[6px] h-[6px] bg-white rounded-full"></div>
               <div className="w-[6px] h-[6px] bg-white rounded-full"></div>
